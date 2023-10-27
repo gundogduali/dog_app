@@ -10,9 +10,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  auto_route: ^7.8.4
+  get_it: ^7.6.4
+
 
 dev_dependencies:
+  auto_route_generator: ^7.3.2
+  build_runner: ^2.4.6
   flutter_test:
     sdk: flutter
   very_good_analysis: ^5.0.0+1

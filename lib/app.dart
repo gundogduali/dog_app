@@ -1,3 +1,5 @@
+import 'package:dog_app/di/di.dart';
+import 'package:dog_app/presentation/route/app_router.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -5,15 +7,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      builder: (context, child) {
-        return const Scaffold(
-          body: Center(
-            child: Text('Dog app'),
-          ),
-        );
-      },
+      routerConfig: getIt<AppRouter>().config(),
     );
   }
 }
