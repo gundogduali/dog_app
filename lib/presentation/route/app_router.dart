@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dog_app/presentation/pages/home/home_screen.dart';
 import 'package:dog_app/presentation/pages/splash_screen/splash_screen.dart';
 
 part 'app_router.gr.dart';
@@ -11,6 +12,10 @@ class AppRouter extends _$AppRouter {
           page: SplashRoute.page,
           initial: true,
           path: '/',
+        ),
+        AutoRoute(
+          page: HomeRoute.page,
+          path: '/home',
         ),
       ];
 }
