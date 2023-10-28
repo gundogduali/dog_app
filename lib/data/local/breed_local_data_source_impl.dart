@@ -8,14 +8,13 @@ class BreedLocalDataSourceImpl implements BreedLocalDataSource {
   AppShared prefs;
   BreedLocalDataSourceImpl(this.prefs);
   @override
-  Future<void> cacheBreeds(List<BreedModel> breeds) {
+  Future<void> cacheBreeds(List<BreedModel> breeds,Duration cacheDuration) {
     final value = breeds.map((e) => e.toJson()).toList();
-    const duration = Duration(days: 7);
 
     return prefs.cacheStringList(
       key: PrefsConstants.breed,
       value: value,
-      duration: duration,
+      duration: cacheDuration,
     );
   }
 
