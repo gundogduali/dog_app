@@ -3,4 +3,6 @@
 abstract class LocaleKeys {
   static const appName = 'appName';
   static const retry = 'retry';
+  static const home = 'home';
+  static const settings = 'settings';
 }

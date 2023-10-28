@@ -1,4 +1,6 @@
 {
     "appName" : "Dog App",
-    "retry" : "Retry"
+    "retry" : "Retry",
+    "home" : "Home",
+    "settings" : "Settings"
 }

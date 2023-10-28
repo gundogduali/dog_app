@@ -51,3 +51,6 @@ flutter:
           weight: 500
         - asset: assets/fonts/GalanoGrotesqueSemiBold.otf
           weight: 600
+    - family: AppIcons
+      fonts:
+        - asset: assets/fonts/AppIcons.ttf
