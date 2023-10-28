@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dog_app/core/network/network_info.dart';
+import 'package:dog_app/core/services/device_info_service.dart';
 import 'package:dog_app/data/core/app_cache_manager.dart';
 import 'package:dog_app/data/core/app_dio.dart';
 import 'package:dog_app/data/core/app_shared_prefs.dart';
@@ -20,6 +21,7 @@ void setup() {
   getIt
     ..registerSingleton(AppRouter())
     ..registerSingleton<NetworkInfo>(NetworkInfoImpl())
+    ..registerSingleton<DeviceInfoService>(DeviceInfoServiceImpl())
     //Data Core Layer
     ..registerSingleton<Dio>(AppDio())
     ..registerSingleton<AppShared>(AppShared())

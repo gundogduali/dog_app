@@ -26,7 +26,6 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return BlocListener<BreedBloc, BreedState>(
       listener: (context, state) {
-        print('state: $state');
         state.maybeWhen(
           loaded: (breeds) {
             context.router.replace(const HomeRoute());

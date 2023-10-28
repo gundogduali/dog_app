@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dog_app/foundation/extensions/context_extensions.dart';
 import 'package:dog_app/foundation/extensions/string_extensions.dart';
 import 'package:dog_app/foundation/generated/locale_keys.g.dart';
@@ -19,7 +17,6 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    inspect(context.theme);
     return SizedBox(
       height: 98,
       child: CustomPaint(

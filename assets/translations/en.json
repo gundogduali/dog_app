@@ -2,5 +2,11 @@
     "appName" : "Dog App",
     "retry" : "Retry",
     "home" : "Home",
-    "settings" : "Settings"
+    "settings" : "Settings",
+    "help" : "Help",
+    "rateUs" : "Rate Us",
+    "shareWithFriends" : "Share With Friends",
+    "termsOfUse" : "Terms of Use",
+    "privacyPolicy" : "Privacy Policy",
+    "osVersion" : "OS Version"
 }

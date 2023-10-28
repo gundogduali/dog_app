@@ -23,6 +23,12 @@ class AppTextTheme {
           fontWeight: FontWeight.w600,
           color: color,
         ),
+        displaySmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: Sizes.k13,
+          fontWeight: FontWeight.w500,
+          color: color,
+        ),
       ),
     );
   }

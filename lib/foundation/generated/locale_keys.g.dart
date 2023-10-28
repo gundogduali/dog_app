@@ -5,4 +5,10 @@ abstract class LocaleKeys {
   static const retry = 'retry';
   static const home = 'home';
   static const settings = 'settings';
+  static const help = 'help';
+  static const rateUs = 'rateUs';
+  static const shareWithFriends = 'shareWithFriends';
+  static const termsOfUse = 'termsOfUse';
+  static const privacyPolicy = 'privacyPolicy';
+  static const osVersion = 'osVersion';
 }
