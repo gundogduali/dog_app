@@ -4,7 +4,7 @@ import 'package:dog_app/data/model/breed_model.dart';
 import 'package:dog_app/data/remote/breed_remote_data_source.dart';
 
 class BreedRemoteDataSourceImpl implements BreedRemoteDataSource {
-  BreedRemoteDataSourceImpl({required this.dio});
+  BreedRemoteDataSourceImpl(this.dio);
 
   final Dio dio;
   @override

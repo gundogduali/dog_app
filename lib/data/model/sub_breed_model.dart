@@ -12,7 +12,7 @@ class SubBreedModel extends Equatable {
     return SubBreedModel(
       name: map['name'] as String,
       images: List<String>.from(
-        map['images'] as List<String>,
+        List<String>.from(map['images'] as List<dynamic>),
       ),
     );
   }

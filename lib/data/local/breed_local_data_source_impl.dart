@@ -6,9 +6,7 @@ import 'package:dog_app/data/model/breed_model.dart';
 
 class BreedLocalDataSourceImpl implements BreedLocalDataSource {
   AppShared prefs;
-  BreedLocalDataSourceImpl({
-    required this.prefs,
-  });
+  BreedLocalDataSourceImpl(this.prefs);
   @override
   Future<void> cacheBreeds(List<BreedModel> breeds) {
     final value = breeds.map((e) => e.toJson()).toList();

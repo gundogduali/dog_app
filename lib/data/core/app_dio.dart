@@ -14,14 +14,14 @@ class AppDio with DioMixin implements Dio {
 
     this.options = options;
 
-    interceptors.add(
-      LogInterceptor(
-        requestBody: true,
-        responseBody: true,
-        responseHeader: false,
-        requestHeader: false,
-      ),
-    );
+    // interceptors.add(
+    // LogInterceptor(
+    //   requestBody: true,
+    //   responseBody: true,
+    //   responseHeader: false,
+    //   requestHeader: false,
+    // ),
+    // );
 
     httpClientAdapter = IOHttpClientAdapter();
   }

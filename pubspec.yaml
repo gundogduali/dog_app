@@ -16,6 +16,8 @@ dependencies:
   dio: ^5.3.3
   equatable: ^2.0.5
   shared_preferences: ^2.2.2
+  dartz: ^0.10.1
+  connectivity_plus: ^5.0.1
 
 
 dev_dependencies:

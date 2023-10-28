@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dog_app/data/remote/breed_remote_data_source.dart';
 import 'package:dog_app/di/di.dart';
+import 'package:dog_app/domain/repositories/breed_repository.dart';
 import 'package:dog_app/foundation/constants/asset_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -17,9 +17,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () async {
-                final breedList =
-                    await getIt<BreedRemoteDataSource>().getBreeds();
-                print(breedList);
+                final breedList = await getIt<BreedRepository>().getBreeds();
               },
               child: const Text('breeds'),
             ),

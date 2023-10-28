@@ -12,7 +12,7 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
       await EasyLocalization.ensureInitialized();
       di.setup();
-
+      EasyLocalization.logger.enableBuildModes = [];
       runApp(
         EasyLocalization(
           supportedLocales: LocalizationConstants.supportedLocales,
