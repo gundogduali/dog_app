@@ -9,24 +9,22 @@ part 'breed_event.dart';
 part 'breed_state.dart';
 
 class BreedBloc extends Bloc<BreedEvent, BreedState> {
-  BreedBloc(this._getBreeds) : super(const _Empty()) {
+  BreedBloc(this._useCase) : super(const _Initial()) {
     on<BreedEvent>((event, emit) {
       event.map(
-        fetcBreeds: (e) => _get(emit),
-        refresh: (value) => _get(emit),
+        fetch: (_) async => _fetchData(),
       );
     });
   }
-  final GetBreedsUseCase _getBreeds;
+  final GetBreedsUseCase _useCase;
 
-  Future<void> _get(Emitter<BreedState> emit) async {
+  //TODO: check this emitter
+  Future<void> _fetchData() async {
     emit(const BreedState.loading());
-    final breeds = await _getBreeds.call(NoParams());
-    emit(
-      breeds.fold(
-        (l) => const BreedState.error('error'),
-        BreedState.loaded,
-      ),
+    final result = await _useCase.call(NoParams());
+    result.fold(
+      (l) => emit(const BreedState.error('error')),
+      (r) => emit(BreedState.loaded(r)),
     );
   }
 }

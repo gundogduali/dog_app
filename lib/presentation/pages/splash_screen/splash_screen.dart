@@ -17,13 +17,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<BreedBloc>().add(const BreedEvent.fetcBreeds());
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<BreedBloc>().add(const BreedEvent.fetch());
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<BreedBloc, BreedState>(
       listener: (context, state) {
+        print('state: $state');
         state.maybeWhen(
           loaded: (breeds) {
             context.router.replace(const HomeRoute());

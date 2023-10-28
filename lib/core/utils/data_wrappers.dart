@@ -43,9 +43,8 @@ class DataWrappers<T> {
       try {
         final cache = await cacheFunction();
         return Right(cache);
-      } catch (e, s) {
+      } catch (e) {
         debugPrint(e.toString());
-        debugPrint(s.toString());
         if (await network.isConnected) {
           try {
             final remote = await remoteFunction();

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 abstract class AppCacheManager {
@@ -8,7 +9,6 @@ abstract class AppCacheManager {
   Future<void> cacheMultipleImages(List<String> imageUrls);
 }
 
-
 class AppCacheManagerImpl implements AppCacheManager {
   AppCacheManagerImpl() {
     _cacheManager = DefaultCacheManager();
@@ -16,8 +16,12 @@ class AppCacheManagerImpl implements AppCacheManager {
   late final CacheManager _cacheManager;
 
   @override
-  Future<void> cacheSingleImage(String imageUrl) {
-    return _cacheManager.downloadFile(imageUrl);
+  Future<void> cacheSingleImage(String imageUrl) async {
+    try {
+      await _cacheManager.downloadFile(imageUrl);
+    } catch (_) {
+      debugPrint('Error caching image: $imageUrl');
+    }
   }
 
   @override
