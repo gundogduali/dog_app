@@ -1,4 +1,5 @@
 import 'package:dog_app/foundation/extensions/context_extensions.dart';
+import 'package:dog_app/foundation/extensions/string_extensions.dart';
 import 'package:dog_app/presentation/components/cached_image_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class GridCard extends StatelessWidget {
     return GridTile(
       footer: GridTileBar(
         title: Text(
-          name,
+          name.capitalizeFirstLetter,
           textAlign: TextAlign.start,
           style: context.textTheme.bodyMedium?.copyWith(
             color: Colors.white,
