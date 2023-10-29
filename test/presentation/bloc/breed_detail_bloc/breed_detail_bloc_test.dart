@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:dog_app/data/model/breed_model.dart';
 import 'package:dog_app/domain/usecases/get_random_breed_image_usecase.dart';
-import 'package:dog_app/presentation/bloc/bloc/breed_detail_bloc.dart';
+import 'package:dog_app/presentation/bloc/breed_detail/breed_detail_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

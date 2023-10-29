@@ -13,8 +13,8 @@ import 'package:dog_app/data/repositories/breed_repository_impl.dart';
 import 'package:dog_app/domain/repositories/breed_repository.dart';
 import 'package:dog_app/domain/usecases/get_breeds_usecase.dart';
 import 'package:dog_app/domain/usecases/get_random_breed_image_usecase.dart';
-import 'package:dog_app/presentation/bloc/bloc/breed_detail_bloc.dart';
 import 'package:dog_app/presentation/bloc/breed/breed_bloc.dart';
+import 'package:dog_app/presentation/bloc/breed_detail/breed_detail_bloc.dart';
 import 'package:dog_app/presentation/route/app_router.dart';
 import 'package:get_it/get_it.dart';
 

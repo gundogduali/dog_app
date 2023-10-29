@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_visible_for_testing_member
+
 import 'package:bloc/bloc.dart';
 import 'package:dog_app/core/usecases/usecase.dart';
 import 'package:dog_app/data/model/breed_model.dart';

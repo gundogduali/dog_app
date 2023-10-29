@@ -4,7 +4,7 @@ import 'package:dog_app/foundation/constants/size_constants.dart';
 import 'package:dog_app/foundation/extensions/context_extensions.dart';
 import 'package:dog_app/foundation/extensions/string_extensions.dart';
 import 'package:dog_app/foundation/generated/locale_keys.g.dart';
-import 'package:dog_app/presentation/bloc/bloc/breed_detail_bloc.dart';
+import 'package:dog_app/presentation/bloc/breed_detail/breed_detail_bloc.dart';
 import 'package:dog_app/presentation/components/cached_image_widget.dart';
 import 'package:dog_app/presentation/components/circular_back_button.dart';
 import 'package:dog_app/presentation/components/dialog_list_text.dart';
