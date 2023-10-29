@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dog_app/foundation/constants/asset_constants.dart';
 import 'package:dog_app/presentation/bloc/breed/breed_bloc.dart';
+import 'package:dog_app/presentation/route/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,15 +45,15 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return BlocListener<BreedBloc, BreedState>(
       listener: (context, state) {
-        // state.maybeWhen(
-        //   loaded: (breeds) {
-        //     context.router.replace(const HomeRoute());
-        //   },
-        //   error: (message) {
-        //     context.router.replace(const HomeRoute());
-        //   },
-        //   orElse: () {},
-        // );
+        state.maybeWhen(
+          loaded: (breeds) {
+            context.router.replace(const HomeRoute());
+          },
+          error: (message) {
+            context.router.replace(const HomeRoute());
+          },
+          orElse: () {},
+        );
       },
       child: Scaffold(
         body: Center(
