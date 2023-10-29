@@ -41,9 +41,6 @@ class _AppSheetTextFieldState
               builder: (context, constraints) {
                 return Container(
                   height: constraints.maxHeight,
-                  margin: isFocused
-                      ? EdgeInsets.zero
-                      : const EdgeInsets.all(Sizes.k16),
                   decoration: BoxDecoration(
                     color: isFocused ? Colors.white : Colors.transparent,
                     borderRadius: isFocused
@@ -62,6 +59,9 @@ class _AppSheetTextFieldState
                   ),
                   child: SingleChildScrollView(
                     controller: scrollController,
+                    physics: isFocused
+                        ? const AlwaysScrollableScrollPhysics()
+                        : const NeverScrollableScrollPhysics(),
                     child: SizedBox(
                       height: constraints.maxHeight,
                       child: Column(
@@ -76,18 +76,22 @@ class _AppSheetTextFieldState
                               ),
                               color: AppColors.systemGray5Light,
                             ),
-                          SizedBox(
-                            height: 64,
-                            child: TextField(
-                              focusNode: focusNode,
-                              onChanged: widget.onChanged,
-                              expands: true,
-                              maxLines: null,
-                              textInputAction: TextInputAction.done,
-                              textAlignVertical: TextAlignVertical.top,
-                              style: Theme.of(context).textTheme.bodyMedium,
-                              decoration: InputDecoration(
-                                hintText: LocaleKeys.search.translate,
+                          Expanded(
+                            child: Padding(
+                              padding: isFocused
+                                  ? EdgeInsets.zero
+                                  : const EdgeInsets.all(Sizes.k16),
+                              child: TextField(
+                                focusNode: focusNode,
+                                onChanged: widget.onChanged,
+                                expands: true,
+                                maxLines: null,
+                                textInputAction: TextInputAction.done,
+                                textAlignVertical: TextAlignVertical.top,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                decoration: InputDecoration(
+                                  hintText: LocaleKeys.search.translate,
+                                ),
                               ),
                             ),
                           ),
