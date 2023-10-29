@@ -27,10 +27,10 @@ class BreedRepositoryImpl implements BreedRepository {
   final _cacheDuration = const Duration(days: 1);
 
   @override
-  Future<Either<Failure, List<String>>> getBreedImagesByRandom(
+  Future<Either<Failure, String>> getBreedImagesByRandom(
     String breedName,
   ) {
-    return DataWrappers<List<String>>().tryCatchWrapper(
+    return DataWrappers<String>().tryCatchWrapper(
       networkInfo,
       () => _remoteDataSource.getBreedImagesByRandom(breedName),
     );

@@ -41,6 +41,19 @@ class AppTheme {
           ),
           focusedBorder: InputBorder.none,
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primary,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(Sizes.k8),
+            ),
+            elevation: 0,
+            textStyle: textTheme.displayMedium?.copyWith(
+              color: AppColors.systemBackgroundLight,
+            ),
+            minimumSize: const Size(double.infinity, Sizes.k56),
+          ),
+        ),
       ),
     );
   }

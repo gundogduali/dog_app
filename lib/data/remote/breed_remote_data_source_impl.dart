@@ -46,12 +46,12 @@ class BreedRemoteDataSourceImpl implements BreedRemoteDataSource {
   }
 
   @override
-  Future<List<String>> getBreedImagesByRandom(String breedName) async {
+  Future<String> getBreedImagesByRandom(String breedName) async {
     final response = await dio.get<Map<String, dynamic>>(
       ApiConstants.randomBreedImages(breedName),
     );
     final images =
         List<String>.from(response.data?['message'] as List<dynamic>);
-    return images;
+    return images.isEmpty ? '' : images.first;
   }
 }

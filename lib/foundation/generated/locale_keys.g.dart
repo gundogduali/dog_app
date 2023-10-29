@@ -14,4 +14,8 @@ abstract class LocaleKeys {
   static const search = 'search';
   static const noResultFound = 'noResultFound';
   static const trySearchingAnotherWord = 'trySearchingAnotherWord';
+  static const breed = 'breed';
+  static const subBreed = 'subBreed';
+  static const generate = 'generate';
+  static const noSubBreed = 'noSubBreed';
 }

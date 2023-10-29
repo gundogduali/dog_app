@@ -6,7 +6,7 @@ class BreedDetailState with _$BreedDetailState {
     {
       required BreedModel breed,
       required bool isLoading,
-      required String? imageUrl,
+      required String imageUrl,
     }
   ) = _BreedDetailState;
 }

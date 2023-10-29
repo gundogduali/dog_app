@@ -11,5 +11,9 @@
     "osVersion" : "OS Version",
     "search" : "Search",
     "noResultFound" : "No Result Found",
-    "trySearchingAnotherWord" : "Try searching another word"
+    "trySearchingAnotherWord" : "Try searching another word",
+    "breed": "Breed",
+    "subBreed": "Sub Breed",
+    "generate" : "Generate",
+    "noSubBreed" : "No Sub Breed"
 }

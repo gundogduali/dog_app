@@ -31,4 +31,5 @@ class AppIcons {
   static const IconData rate = IconData(0xe806, fontFamily: _kFontFam);
   static const IconData info = IconData(0xe807, fontFamily: _kFontFam);
   static const IconData arrowupright = IconData(0xe808, fontFamily: _kFontFam);
+  static const IconData close = IconData(0xe809, fontFamily: _kFontFam);
 }

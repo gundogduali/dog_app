@@ -4,4 +4,5 @@ class RoutePaths {
   static const dashboard = '/dashboard';
   static const home = 'home';
   static const settings = 'settings';
+  static const breedDetailDialog = '/breed-detail-dialog';
 }

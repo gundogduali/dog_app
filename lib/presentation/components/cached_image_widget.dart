@@ -1,17 +1,24 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dog_app/foundation/constants/asset_constants.dart';
+import 'package:dog_app/foundation/constants/size_constants.dart';
+import 'package:dog_app/presentation/components/shimmer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 
 class CachedImageWidget extends StatelessWidget {
   const CachedImageWidget({
     required this.imageUrl,
-    this.borderRadius = 8,
+    this.borderRadius,
+    this.height,
+    this.width,
+    this.fit = BoxFit.cover,
     super.key,
   });
 
   final String imageUrl;
-  final double borderRadius;
+  final BorderRadiusGeometry? borderRadius;
+  final double? height;
+  final double? width;
+  final BoxFit fit;
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +31,8 @@ class CachedImageWidget extends StatelessWidget {
         );
       },
       placeholder: (context, url) {
-        return Shimmer.fromColors(
-          baseColor: Colors.grey[300]!,
-          highlightColor: Colors.grey[100]!,
-          child: Container(
-            color: Colors.white,
-          ),
+        return ShimmerWidget(
+          borderRadius: borderRadius ?? BorderRadius.circular(Sizes.k8),
         );
       },
       fadeInDuration: const Duration(milliseconds: 250),
@@ -37,11 +40,13 @@ class CachedImageWidget extends StatelessWidget {
       fit: BoxFit.cover,
       imageBuilder: (context, imageProvider) {
         return Container(
+          height: height,
+          width: width,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius),
+            borderRadius: borderRadius ?? BorderRadius.circular(Sizes.k8),
             image: DecorationImage(
               image: imageProvider,
-              fit: BoxFit.cover,
+              fit: fit,
             ),
           ),
         );

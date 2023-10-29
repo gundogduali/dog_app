@@ -10,5 +10,5 @@ abstract class BreedRemoteDataSource {
     String subBreedName,
   );
 
-  Future<List<String>> getBreedImagesByRandom(String breedName);
+  Future<String> getBreedImagesByRandom(String breedName);
 }

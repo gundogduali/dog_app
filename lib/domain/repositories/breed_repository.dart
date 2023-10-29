@@ -10,5 +10,5 @@ abstract class BreedRepository {
     String subBreedName,
   );
 
-  Future<Either<Failure,List<String>>> getBreedImagesByRandom(String breedName);
+  Future<Either<Failure,String>> getBreedImagesByRandom(String breedName);
 }

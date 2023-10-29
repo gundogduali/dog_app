@@ -7,5 +7,5 @@ class ApiConstants {
   static String subImages(String breed, String subBreed) =>
       '/breed/$breed/$subBreed/images';
   static String randomBreedImages(String breed) =>
-      '/breed/$breed/images/random';
+      '/breed/$breed/images/random/1';
 }
