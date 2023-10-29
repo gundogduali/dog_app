@@ -10,7 +10,8 @@ class BreedModel extends Equatable {
     required this.image,
   });
 
-  factory BreedModel.empty() => const BreedModel(name: '', subBreeds: [],image: '');
+  factory BreedModel.empty() =>
+      const BreedModel(name: '', subBreeds: [], image: '');
 
   factory BreedModel.fromMap(Map<String, dynamic> map) {
     final subBreeds = List<String>.from(map.values.first as List<dynamic>);
