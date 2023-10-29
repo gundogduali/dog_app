@@ -22,6 +22,8 @@ To run the code, first clone the repository and then run:
 flutter pub get && flutter run
 ```
 
+**Note: This project was written with flutter version 3.13.9. If it cannot be built, apk can be downloaded from [v1.0.0 Release](https://github.com/gundogduali/dog_app/releases/tag/v1.0.0 'v1.0.0').**
+
 ## Tests
 
 Tests that are included in the project:
