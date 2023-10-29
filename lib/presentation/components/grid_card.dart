@@ -16,17 +16,20 @@ class GridCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridTile(
-      footer: GridTileBar(
-        title: Text(
-          name.capitalizeFirstLetter,
-          textAlign: TextAlign.start,
-          style: context.textTheme.bodyMedium?.copyWith(
-            color: Colors.white,
+    return InkWell(
+      onTap: onTap,
+      child: GridTile(
+        footer: GridTileBar(
+          title: Text(
+            name.capitalizeFirstLetter,
+            textAlign: TextAlign.start,
+            style: context.textTheme.bodyMedium?.copyWith(
+              color: Colors.white,
+            ),
           ),
         ),
+        child: CachedImageWidget(imageUrl: imageUrl),
       ),
-      child: CachedImageWidget(imageUrl: imageUrl),
     );
   }
 }

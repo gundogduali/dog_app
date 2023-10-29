@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dog_app/foundation/constants/size_constants.dart';
 import 'package:dog_app/foundation/generated/locale_keys.g.dart';
-import 'package:dog_app/presentation/pages/settings_screen/widgets/settings_divider.dart';
-import 'package:dog_app/presentation/pages/settings_screen/widgets/settings_tile.dart';
-import 'package:dog_app/presentation/pages/settings_screen/widgets/version_text_widget.dart';
 import 'package:dog_app/presentation/theme/app_icons.dart';
+import 'package:dog_app/presentation/widgets/settings_divider.dart';
+import 'package:dog_app/presentation/widgets/settings_tile.dart';
+import 'package:dog_app/presentation/widgets/version_text_widget.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()

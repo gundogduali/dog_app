@@ -16,20 +16,20 @@ class BreedRemoteDataSourceImpl implements BreedRemoteDataSource {
       final breed = BreedModel.fromMap({
         entry.key: entry.value,
       });
-      final images = await getImagesByBreed(breed.name);
-      breeds.add(breed.copyWith(images: images));
+      final image = await getImageByBreed(breed.name);
+      breeds.add(breed.copyWith(image: image));
     }
     return breeds;
   }
 
   @override
-  Future<List<String>> getImagesByBreed(String breedName) async {
+  Future<String> getImageByBreed(String breedName) async {
     final response = await dio.get<Map<String, dynamic>>(
-      ApiConstants.images(breedName),
+      ApiConstants.image(breedName),
     );
     final images =
         List<String>.from(response.data?['message'] as List<dynamic>);
-    return images;
+    return images.isEmpty ? '' : images.first;
   }
 
   @override

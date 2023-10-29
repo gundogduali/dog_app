@@ -6,14 +6,20 @@ import 'package:dog_app/presentation/components/app_empty_widget.dart';
 import 'package:dog_app/presentation/components/app_error_widget.dart';
 import 'package:dog_app/presentation/components/app_sheet_textfield.dart';
 import 'package:dog_app/presentation/components/grid_view_loading.dart';
-import 'package:dog_app/presentation/pages/home/widgets/breed_grid_view.dart';
+import 'package:dog_app/presentation/mixins/breed_detail_mixin.dart';
+import 'package:dog_app/presentation/widgets/breed_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> with BreedDetailMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +36,10 @@ class HomeScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: state.maybeWhen<Widget>(
-                    loaded: (breeds) => BreedGridView(breeds: breeds),
+                    loaded: (breeds) => BreedGridView(
+                      breeds: breeds,
+                      onTapListItem: showBreedDetailDialog,
+                    ),
                     error: (message) => AppErrorWidget(
                       errorMessage: message,
                       onRetry: () {

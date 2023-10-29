@@ -7,8 +7,10 @@ class BreedModel extends Equatable {
   const BreedModel({
     required this.name,
     required this.subBreeds,
-    this.images = const [],
+    required this.image,
   });
+
+  factory BreedModel.empty() => const BreedModel(name: '', subBreeds: [],image: '');
 
   factory BreedModel.fromMap(Map<String, dynamic> map) {
     final subBreeds = List<String>.from(map.values.first as List<dynamic>);
@@ -16,6 +18,7 @@ class BreedModel extends Equatable {
       name: map.keys.first,
       subBreeds:
           subBreeds.map<SubBreedModel>((e) => SubBreedModel(name: e)).toList(),
+      image: '',
     );
   }
 
@@ -27,7 +30,7 @@ class BreedModel extends Equatable {
           (e) => SubBreedModel.fromMap(e as Map<String, dynamic>),
         ),
       ),
-      images: List<String>.from(map.values.last as List<dynamic>),
+      image: map['image'] as String? ?? '',
     );
   }
 
@@ -36,20 +39,20 @@ class BreedModel extends Equatable {
 
   final String name;
   final List<SubBreedModel> subBreeds;
-  final List<String> images;
+  final String image;
 
   @override
-  List<Object?> get props => [name, subBreeds, images];
+  List<Object?> get props => [name, subBreeds, image];
 
   BreedModel copyWith({
     String? name,
     List<SubBreedModel>? subBreeds,
-    List<String>? images,
+    String? image,
   }) {
     return BreedModel(
       name: name ?? this.name,
       subBreeds: subBreeds ?? this.subBreeds,
-      images: images ?? this.images,
+      image: image ?? this.image,
     );
   }
 
@@ -57,7 +60,7 @@ class BreedModel extends Equatable {
     return <String, dynamic>{
       'name': name,
       'subBreeds': subBreeds.map((x) => x.toMap()).toList(),
-      'images': images,
+      'image': image,
     };
   }
 

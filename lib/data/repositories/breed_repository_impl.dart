@@ -43,7 +43,7 @@ class BreedRepositoryImpl implements BreedRepository {
       () async {
         final breeds = await _remoteDataSource.getBreeds();
         unawaited(_localDataSource.cacheBreeds(breeds, _cacheDuration));
-        final imageUrls = breeds.map((e) => e.images.first).toList();
+        final imageUrls = breeds.map((e) => e.image).toList();
         await _cacheManager.cacheMultipleImages(imageUrls);
         return breeds;
       },
@@ -51,13 +51,7 @@ class BreedRepositoryImpl implements BreedRepository {
     );
   }
 
-  @override
-  Future<Either<Failure, List<String>>> getImagesByBreed(String breedName) {
-    return DataWrappers<List<String>>().tryCatchWrapper(
-      networkInfo,
-      () => _remoteDataSource.getImagesByBreed(breedName),
-    );
-  }
+
 
   @override
   Future<Either<Failure, List<String>>> getImagesBySubBreed(

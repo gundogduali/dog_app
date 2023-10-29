@@ -3,8 +3,13 @@ import 'package:dog_app/presentation/components/grid_card.dart';
 import 'package:flutter/material.dart';
 
 class BreedGridView extends StatelessWidget {
-  const BreedGridView({required this.breeds, super.key});
+  const BreedGridView({
+    required this.breeds,
+    required this.onTapListItem,
+    super.key,
+  });
   final List<BreedModel> breeds;
+  final void Function(BreedModel breed) onTapListItem;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +24,8 @@ class BreedGridView extends StatelessWidget {
         final breed = breeds[index];
         return GridCard(
           name: breed.name,
-          imageUrl: breed.images.first,
-          onTap: () {
-            //TODO: Navigate to breed detail screen
-          },
+          imageUrl: breed.image,
+          onTap: () => onTapListItem(breed),
         );
       },
     );

@@ -2,8 +2,8 @@ import 'package:dog_app/foundation/extensions/context_extensions.dart';
 import 'package:dog_app/foundation/extensions/string_extensions.dart';
 import 'package:dog_app/foundation/generated/locale_keys.g.dart';
 import 'package:dog_app/presentation/components/app_divider.dart';
-import 'package:dog_app/presentation/pages/dashboard_screen/widgets/bottom_navigation_bar_painter.dart';
 import 'package:dog_app/presentation/theme/app_icons.dart';
+import 'package:dog_app/presentation/widgets/bottom_navigation_bar_painter.dart';
 import 'package:flutter/material.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
