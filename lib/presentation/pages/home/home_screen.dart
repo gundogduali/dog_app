@@ -3,6 +3,7 @@ import 'package:dog_app/foundation/extensions/string_extensions.dart';
 import 'package:dog_app/foundation/generated/locale_keys.g.dart';
 import 'package:dog_app/presentation/bloc/breed/breed_bloc.dart';
 import 'package:dog_app/presentation/components/app_error_widget.dart';
+import 'package:dog_app/presentation/components/app_sheet_textfield.dart';
 import 'package:dog_app/presentation/components/grid_view_loading.dart';
 import 'package:dog_app/presentation/pages/home/widgets/breed_grid_view.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +24,21 @@ class HomeScreen extends StatelessWidget {
       body: BlocBuilder<BreedBloc, BreedState>(
         builder: (context, state) {
           return state.maybeWhen(
-            loaded: (breeds) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: BreedGridView(breeds: breeds),
+            loaded: (breeds) => Stack(
+              children: [
+                Positioned.fill(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: BreedGridView(breeds: breeds),
+                  ),
+                ),
+                const Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: AppSheetTextField(),
+                  ),
+                ),
+              ],
             ),
             error: (message) => AppErrorWidget(
               errorMessage: message,

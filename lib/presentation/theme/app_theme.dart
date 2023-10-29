@@ -1,3 +1,4 @@
+import 'package:dog_app/foundation/constants/size_constants.dart';
 import 'package:dog_app/presentation/theme/app_colors.dart';
 import 'package:dog_app/presentation/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,23 @@ class AppTheme {
           elevation: 0,
           centerTitle: true,
           titleTextStyle: textTheme.titleSmall,
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          hintStyle: textTheme.bodyMedium?.copyWith(
+            color: AppColors.secondaryLabelLight,
+          ),
+          fillColor: AppColors.systemBackgroundLight,
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: AppColors.systemGray5Light,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(Sizes.k8),
+            ),
+          ),
+          focusedBorder: InputBorder.none,
         ),
       ),
     );

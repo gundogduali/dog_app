@@ -11,4 +11,5 @@ abstract class LocaleKeys {
   static const termsOfUse = 'termsOfUse';
   static const privacyPolicy = 'privacyPolicy';
   static const osVersion = 'osVersion';
+  static const search = 'search';
 }
