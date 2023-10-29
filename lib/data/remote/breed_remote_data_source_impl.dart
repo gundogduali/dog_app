@@ -10,6 +10,7 @@ class BreedRemoteDataSourceImpl implements BreedRemoteDataSource {
   final Dio dio;
   @override
   Future<List<BreedModel>> getBreeds() async {
+    final futureList = <Future<String>>[];
     final response = await dio.get<Map<String, dynamic>>(ApiConstants.breeds);
     if (response.statusCode != 200) throw ServerException();
     final breedsMap = response.data?['message'] as Map<String, dynamic>;
@@ -18,20 +19,28 @@ class BreedRemoteDataSourceImpl implements BreedRemoteDataSource {
       final breed = BreedModel.fromMap({
         entry.key: entry.value,
       });
-      final image = await getImageByBreed(breed.name);
-      breeds.add(breed.copyWith(image: image));
+      breeds.add(breed);
+      futureList.add(getImageByBreed(breed.name));
+    }
+    final images = await Future.wait(futureList);
+    for (var i = 0; i < breedsMap.length; i++) {
+      breeds[i] = breeds[i].copyWith(image: images[i]);
     }
     return breeds;
   }
 
   @override
   Future<String> getImageByBreed(String breedName) async {
-    final response = await dio.get<Map<String, dynamic>>(
-      ApiConstants.image(breedName),
-    );
-    final images =
-        List<String>.from(response.data?['message'] as List<dynamic>);
-    return images.isEmpty ? '' : images.first;
+    try {
+      final response = await dio.get<Map<String, dynamic>>(
+        ApiConstants.image(breedName),
+      );
+      final images =
+          List<String>.from(response.data?['message'] as List<dynamic>);
+      return images.isEmpty ? '' : images.first;
+    } catch (_) {
+      return '';
+    }
   }
 
   @override
