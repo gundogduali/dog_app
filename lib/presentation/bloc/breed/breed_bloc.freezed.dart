@@ -19,32 +19,38 @@ mixin _$BreedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
+    required TResult Function(String text) search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetch,
+    TResult? Function(String text)? search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
+    TResult Function(String text)? search,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
+    required TResult Function(_Search value) search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Search value)? search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
+    TResult Function(_Search value)? search,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
+    required TResult Function(String text) search,
   }) {
     return fetch();
   }
@@ -115,6 +122,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetch,
+    TResult? Function(String text)? search,
   }) {
     return fetch?.call();
   }
@@ -123,6 +131,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
+    TResult Function(String text)? search,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -135,6 +144,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
+    required TResult Function(_Search value) search,
   }) {
     return fetch(this);
   }
@@ -143,6 +153,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Search value)? search,
   }) {
     return fetch?.call(this);
   }
@@ -151,6 +162,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
+    TResult Function(_Search value)? search,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -165,10 +177,143 @@ abstract class _Fetch implements BreedEvent {
 }
 
 /// @nodoc
+abstract class _$$SearchImplCopyWith<$Res> {
+  factory _$$SearchImplCopyWith(
+          _$SearchImpl value, $Res Function(_$SearchImpl) then) =
+      __$$SearchImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$SearchImplCopyWithImpl<$Res>
+    extends _$BreedEventCopyWithImpl<$Res, _$SearchImpl>
+    implements _$$SearchImplCopyWith<$Res> {
+  __$$SearchImplCopyWithImpl(
+      _$SearchImpl _value, $Res Function(_$SearchImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+  }) {
+    return _then(_$SearchImpl(
+      null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchImpl implements _Search {
+  const _$SearchImpl(this.text);
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'BreedEvent.search(text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchImpl &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchImplCopyWith<_$SearchImpl> get copyWith =>
+      __$$SearchImplCopyWithImpl<_$SearchImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetch,
+    required TResult Function(String text) search,
+  }) {
+    return search(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(String text)? search,
+  }) {
+    return search?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetch,
+    TResult Function(String text)? search,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_Search value) search,
+  }) {
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Search value)? search,
+  }) {
+    return search?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_Search value)? search,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Search implements BreedEvent {
+  const factory _Search(final String text) = _$SearchImpl;
+
+  String get text;
+  @JsonKey(ignore: true)
+  _$$SearchImplCopyWith<_$SearchImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$BreedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(List<BreedModel> breeds) loaded,
     required TResult Function(String message) error,
@@ -176,7 +321,7 @@ mixin _$BreedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function(List<BreedModel> breeds)? loaded,
     TResult? Function(String message)? error,
@@ -184,7 +329,7 @@ mixin _$BreedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(List<BreedModel> breeds)? loaded,
     TResult Function(String message)? error,
@@ -193,7 +338,7 @@ mixin _$BreedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
@@ -201,7 +346,7 @@ mixin _$BreedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
@@ -209,7 +354,7 @@ mixin _$BreedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
@@ -237,35 +382,35 @@ class _$BreedStateCopyWithImpl<$Res, $Val extends BreedState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$EmptyImplCopyWith<$Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
+      __$$EmptyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$BreedStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$EmptyImplCopyWithImpl<$Res>
+    extends _$BreedStateCopyWithImpl<$Res, _$EmptyImpl>
+    implements _$$EmptyImplCopyWith<$Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$EmptyImpl implements _Empty {
+  const _$EmptyImpl();
 
   @override
   String toString() {
-    return 'BreedState.initial()';
+    return 'BreedState.empty()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$EmptyImpl);
   }
 
   @override
@@ -274,36 +419,36 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(List<BreedModel> breeds) loaded,
     required TResult Function(String message) error,
   }) {
-    return initial();
+    return empty();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function(List<BreedModel> breeds)? loaded,
     TResult? Function(String message)? error,
   }) {
-    return initial?.call();
+    return empty?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(List<BreedModel> breeds)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (empty != null) {
+      return empty();
     }
     return orElse();
   }
@@ -311,43 +456,43 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
   }) {
-    return initial(this);
+    return empty(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
   }) {
-    return initial?.call(this);
+    return empty?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (empty != null) {
+      return empty(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements BreedState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _Empty implements BreedState {
+  const factory _Empty() = _$EmptyImpl;
 }
 
 /// @nodoc
@@ -388,7 +533,7 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(List<BreedModel> breeds) loaded,
     required TResult Function(String message) error,
@@ -399,7 +544,7 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function(List<BreedModel> breeds)? loaded,
     TResult? Function(String message)? error,
@@ -410,7 +555,7 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(List<BreedModel> breeds)? loaded,
     TResult Function(String message)? error,
@@ -425,7 +570,7 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
@@ -436,7 +581,7 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
@@ -447,7 +592,7 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
@@ -534,7 +679,7 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(List<BreedModel> breeds) loaded,
     required TResult Function(String message) error,
@@ -545,7 +690,7 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function(List<BreedModel> breeds)? loaded,
     TResult? Function(String message)? error,
@@ -556,7 +701,7 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(List<BreedModel> breeds)? loaded,
     TResult Function(String message)? error,
@@ -571,7 +716,7 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
@@ -582,7 +727,7 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
@@ -593,7 +738,7 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
@@ -679,7 +824,7 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(List<BreedModel> breeds) loaded,
     required TResult Function(String message) error,
@@ -690,7 +835,7 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function(List<BreedModel> breeds)? loaded,
     TResult? Function(String message)? error,
@@ -701,7 +846,7 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(List<BreedModel> breeds)? loaded,
     TResult Function(String message)? error,
@@ -716,7 +861,7 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
@@ -727,7 +872,7 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
@@ -738,7 +883,7 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,

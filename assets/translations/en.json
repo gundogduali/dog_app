@@ -9,5 +9,7 @@
     "termsOfUse" : "Terms of Use",
     "privacyPolicy" : "Privacy Policy",
     "osVersion" : "OS Version",
-    "search" : "Search"
+    "search" : "Search",
+    "noResultFound" : "No Result Found",
+    "trySearchingAnotherWord" : "Try searching another word"
 }

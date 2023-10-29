@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dog_app/foundation/extensions/string_extensions.dart';
 import 'package:dog_app/foundation/generated/locale_keys.g.dart';
 import 'package:dog_app/presentation/bloc/breed/breed_bloc.dart';
+import 'package:dog_app/presentation/components/app_empty_widget.dart';
 import 'package:dog_app/presentation/components/app_error_widget.dart';
 import 'package:dog_app/presentation/components/app_sheet_textfield.dart';
 import 'package:dog_app/presentation/components/grid_view_loading.dart';
@@ -23,30 +24,43 @@ class HomeScreen extends StatelessWidget {
       ),
       body: BlocBuilder<BreedBloc, BreedState>(
         builder: (context, state) {
-          return state.maybeWhen(
-            loaded: (breeds) => Stack(
-              children: [
-                Positioned.fill(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: BreedGridView(breeds: breeds),
+          return Stack(
+            children: [
+              Positioned.fill(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: state.maybeWhen<Widget>(
+                    loaded: (breeds) => BreedGridView(breeds: breeds),
+                    error: (message) => AppErrorWidget(
+                      errorMessage: message,
+                      onRetry: () {
+                        context.read<BreedBloc>().add(const BreedEvent.fetch());
+                      },
+                    ),
+                    empty: () => const AppEmptyWidget(),
+                    orElse: GridViewLoading.new,
                   ),
                 ),
-                const Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: AppSheetTextField(),
+              ),
+              Positioned.fill(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: state.maybeWhen(
+                    loaded: (breeds) => AppSheetTextField(
+                      onChanged: (value) => context
+                          .read<BreedBloc>()
+                          .add(BreedEvent.search(value)),
+                    ),
+                    empty: () => AppSheetTextField(
+                      onChanged: (value) => context
+                          .read<BreedBloc>()
+                          .add(BreedEvent.search(value)),
+                    ),
+                    orElse: () => const SizedBox.shrink(),
                   ),
                 ),
-              ],
-            ),
-            error: (message) => AppErrorWidget(
-              errorMessage: message,
-              onRetry: () {
-                context.read<BreedBloc>().add(const BreedEvent.fetch());
-              },
-            ),
-            orElse: GridViewLoading.new,
+              ),
+            ],
           );
         },
       ),

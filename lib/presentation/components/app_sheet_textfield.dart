@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppSheetTextField extends StatefulWidget {
-  const AppSheetTextField({super.key});
+  const AppSheetTextField({super.key, this.onChanged});
+  final void Function(String)? onChanged;
 
   @override
   State<AppSheetTextField> createState() => _AppSheetTextFieldState();
@@ -79,10 +80,12 @@ class _AppSheetTextFieldState
                             height: 64,
                             child: TextField(
                               focusNode: focusNode,
+                              onChanged: widget.onChanged,
                               expands: true,
                               maxLines: null,
                               textInputAction: TextInputAction.done,
                               textAlignVertical: TextAlignVertical.top,
+                              style: Theme.of(context).textTheme.bodyMedium,
                               decoration: InputDecoration(
                                 hintText: LocaleKeys.search.translate,
                               ),

@@ -9,14 +9,16 @@ part 'breed_event.dart';
 part 'breed_state.dart';
 
 class BreedBloc extends Bloc<BreedEvent, BreedState> {
-  BreedBloc(this._useCase) : super(const _Initial()) {
+  BreedBloc(this._useCase) : super(const _Empty()) {
     on<BreedEvent>((event, emit) {
       event.map(
         fetch: (_) async => _fetchData(),
+        search: (e) => search(e.text),
       );
     });
   }
   final GetBreedsUseCase _useCase;
+  late final List<BreedModel> breeds;
 
   //TODO: check this emitter
   Future<void> _fetchData() async {
@@ -24,7 +26,29 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
     final result = await _useCase.call(NoParams());
     result.fold(
       (l) => emit(const BreedState.error('error')),
-      (r) => emit(BreedState.loaded(r)),
+      (r) {
+        breeds = r;
+        if (r.isEmpty) {
+          emit(const BreedState.empty());
+        } else {
+          emit(BreedState.loaded(r));
+        }
+      },
     );
+  }
+
+  void search(String text) {
+    if (text.isEmpty) {
+      emit(BreedState.loaded(breeds));
+    } else {
+      final filtered = breeds.where(
+        (element) => element.name.toLowerCase().contains(text.toLowerCase()),
+      );
+      if (filtered.isEmpty) {
+        emit(const BreedState.empty());
+        return;
+      }
+      emit(BreedState.loaded(filtered.toList()));
+    }
   }
 }

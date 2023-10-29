@@ -12,4 +12,6 @@ abstract class LocaleKeys {
   static const privacyPolicy = 'privacyPolicy';
   static const osVersion = 'osVersion';
   static const search = 'search';
+  static const noResultFound = 'noResultFound';
+  static const trySearchingAnotherWord = 'trySearchingAnotherWord';
 }
