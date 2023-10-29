@@ -34,6 +34,7 @@ class AppShared {
     if (value == null) {
       throw CacheException();
     }
+    print(value);
     return value;
   }
 }

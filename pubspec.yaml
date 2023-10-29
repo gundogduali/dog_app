@@ -34,6 +34,7 @@ dev_dependencies:
   very_good_analysis: ^5.0.0+1
   freezed: ^2.4.5
   flutter_launcher_icons: ^0.13.1
+  mockito: ^5.4.2
 
 
 flutter:
